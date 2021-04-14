@@ -212,7 +212,7 @@ def load_ae(path, target_dataset, batch, all_aes, return_dataset=False):
         if ',' in value:
             pass
         elif value in ('True', 'False'):
-            value = dict(True=True, False=False)[value]
+            value = value == 'True'
         elif '.' in value:
             value = float(value)
         else:
