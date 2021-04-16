@@ -34,7 +34,7 @@ from tqdm import trange, tqdm
 URLS = {
     'svhn': 'http://ufldl.stanford.edu/housenumbers/{}_32x32.mat',
     'cifar10': 'https://www.cs.toronto.edu/~kriz/cifar-10-matlab.tar.gz',
-    'celeba': '0B7EVK8r0v71pZjFTYXZWM3FlRnM',
+    'celeba': './img_align_celeba.zip',
     'mnist': 'https://storage.googleapis.com/cvdf-datasets/mnist/{}.gz',
 }
 
@@ -92,9 +92,9 @@ def _load_cifar10():
 
 def _load_celeba():
     with tempfile.NamedTemporaryFile() as f:
-        gdd.download_file_from_google_drive(
-            file_id=URLS['celeba'], dest_path=f.name, overwrite=True)
-        zip_f = zipfile.ZipFile(f.name)
+        # gdd.download_file_from_google_drive(
+        #     file_id=URLS['celeba'], dest_path=f.name, overwrite=True)
+        zip_f = zipfile.ZipFile(URLS['celeba'])
         images = []
         for image_file in tqdm(zip_f.namelist(), 'Decompressing', leave=False):
             if os.path.splitext(image_file)[1] == '.jpg':
