@@ -64,3 +64,8 @@ These are the maintained models:
 ## Unofficial implementations
 
 - Kyle McDonald created a Pytorch version of ACAI [here](https://gist.github.com/kylemcdonald/e8ca989584b3b0e6526c0a737ed412f0).
+
+
+## CelebA Location
+
+[Google Drive Link](https://drive.google.com/file/d/0B7EVK8r0v71pZjFTYXZWM3FlRnM/edit)
