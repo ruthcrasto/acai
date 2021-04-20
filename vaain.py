@@ -93,7 +93,7 @@ class VAAIN(train.AE):
         alpha = tf.random_uniform([tf.shape(encode)[0], 1, 1, 1], 0, 1)
         alpha = 0.5 - tf.abs(alpha - 0.5)  # [0, 1] -> [0, 0.5]
         encode_mix = alpha * encode + (1 - alpha) * encode[::-1]
-        decode_mix = decoder(encode_mix)
+        decode_mix = 2*tf.nn.sigmoid(decoder(encode_mix)) - 1
 
         loss_disc = tf.reduce_mean(
             tf.square(disc(decode_mix) - alpha[:, 0, 0, 0]))
